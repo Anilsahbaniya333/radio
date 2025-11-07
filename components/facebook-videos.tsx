@@ -60,7 +60,7 @@ export function FacebookVideos() {
           <div className="space-y-2">
             <label className="text-sm font-medium">Facebook Page Username/ID</label>
             <Input
-              placeholder="nepaliradiotoronto"
+              placeholder="NamasteRadioToronto"
               value={facebookPageUrl}
               onChange={(e) => setFacebookPageUrl(e.target.value)}
             />
