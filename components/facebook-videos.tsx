@@ -6,43 +6,25 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Save, ExternalLink } from "lucide-react"
 
-const DEFAULT_VIDEOS = [
-  {
-    embedUrl:
-      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F&show_text=false&width=560&t=0",
-    title: "Sample Video 1",
-  },
-  {
-    embedUrl:
-      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F&show_text=false&width=560&t=0",
-    title: "Sample Video 2",
-  },
-  {
-    embedUrl:
-      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F&show_text=false&width=560&t=0",
-    title: "Sample Video 3",
-  },
-  {
-    embedUrl:
-      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F10153231379946729%2F&show_text=false&width=560&t=0",
-    title: "Sample Video 4",
-  },
-]
-
 export function FacebookVideos() {
-  const [facebookPageUrl, setFacebookPageUrl] = useState("nepaliradiotoronto")
+  const [facebookPage, setFacebookPage] = useState("NamasteRadioToronto")
+  const [tiktokUser, setTiktokUser] = useState("anilt72")
+  const [tiktokVideoId, setTiktokVideoId] = useState("7532371121463774469")
   const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
-    // Load saved Facebook page URL from localStorage
-    const savedUrl = localStorage.getItem("facebookPageUrl")
-    if (savedUrl) {
-      setFacebookPageUrl(savedUrl)
-    }
+    const fb = localStorage.getItem("facebookPage")
+    const ttUser = localStorage.getItem("tiktokUser")
+    const ttVid = localStorage.getItem("tiktokVideoId")
+    if (fb) setFacebookPage(fb)
+    if (ttUser) setTiktokUser(ttUser)
+    if (ttVid) setTiktokVideoId(ttVid)
   }, [])
 
   const handleSave = () => {
-    localStorage.setItem("facebookPageUrl", facebookPageUrl)
+    localStorage.setItem("facebookPage", facebookPage)
+    localStorage.setItem("tiktokUser", tiktokUser)
+    localStorage.setItem("tiktokVideoId", tiktokVideoId)
     setIsEditing(false)
   }
 
@@ -50,22 +32,36 @@ export function FacebookVideos() {
     return (
       <Card className="p-6 bg-card/50 backdrop-blur border-border/50">
         <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Configure Facebook Page</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Enter your Facebook page username or ID to display all your videos
-            </p>
-          </div>
+          <h4 className="font-semibold mb-2">Configure Social Media Clips</h4>
+          <p className="text-sm text-muted-foreground mb-4">
+            Enter your Facebook page and TikTok video info
+          </p>
 
           <div className="space-y-2">
-            <label className="text-sm font-medium">Facebook Page Username/ID</label>
+            <label className="text-sm font-medium">Facebook Page Username</label>
             <Input
               placeholder="NamasteRadioToronto"
-              value={facebookPageUrl}
-              onChange={(e) => setFacebookPageUrl(e.target.value)}
+              value={facebookPage}
+              onChange={(e) => setFacebookPage(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium">TikTok Username</label>
+            <Input
+              placeholder="anilt72"
+              value={tiktokUser}
+              onChange={(e) => setTiktokUser(e.target.value)}
+            />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium">TikTok Video ID</label>
+            <Input
+              placeholder="7532371121463774469"
+              value={tiktokVideoId}
+              onChange={(e) => setTiktokVideoId(e.target.value)}
             />
             <p className="text-xs text-muted-foreground">
-              Example: If your page is facebook.com/nepaliradiotoronto, enter "nepaliradiotoronto"
+              Example: the ID part from the TikTok URL 
             </p>
           </div>
 
@@ -83,38 +79,65 @@ export function FacebookVideos() {
     )
   }
 
-  const pagePluginUrl = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F${encodeURIComponent(
-    facebookPageUrl,
+  const fbPluginUrl = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F${encodeURIComponent(
+    facebookPage,
   )}&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId`
+
+  const tiktokEmbedUrl = `https://www.tiktok.com/embed/v2/${tiktokVideoId}`
 
   return (
     <div className="space-y-4">
       <div className="flex justify-between items-center">
-        <Button variant="ghost" size="sm" asChild className="gap-2">
-          <a href={`https://www.facebook.com/${facebookPageUrl}`} target="_blank" rel="noopener noreferrer">
-            <ExternalLink className="h-4 w-4" />
-            Visit Facebook Page
-          </a>
-        </Button>
+        <div className="flex gap-3">
+          <Button variant="ghost" size="sm" asChild className="gap-2">
+            <a href={`https://www.facebook.com/${facebookPage}`} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4" />
+              Facebook Page
+            </a>
+          </Button>
+          <Button variant="ghost" size="sm" asChild className="gap-2">
+            <a href={`https://www.tiktok.com/@${tiktokUser}`} target="_blank" rel="noopener noreferrer">
+              <ExternalLink className="h-4 w-4" />
+              TikTok Profile
+            </a>
+          </Button>
+        </div>
+
         <Button variant="ghost" size="sm" onClick={() => setIsEditing(true)}>
-          Configure Videos
+          Configure Clips
         </Button>
       </div>
 
-      <Card className="overflow-hidden bg-card/50 backdrop-blur border-border/50">
-        <div className="w-full flex justify-center p-4">
-          <iframe
-            src={pagePluginUrl}
-            width="500"
-            height="700"
-            style={{ border: "none", overflow: "hidden" }}
-            scrolling="yes"
-            frameBorder="0"
-            allowFullScreen={true}
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          />
-        </div>
-      </Card>
+      <div className="grid md:grid-cols-2 gap-4">
+        <Card className="overflow-hidden bg-card/50 backdrop-blur border-border/50">
+          <div className="w-full flex justify-center p-4">
+            <iframe
+              src={fbPluginUrl}
+              width="500"
+              height="700"
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="yes"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            />
+          </div>
+        </Card>
+
+        <Card className="overflow-hidden bg-card/50 backdrop-blur border-border/50">
+          <div className="w-full flex justify-center p-4">
+            <iframe
+              src={tiktokEmbedUrl}
+              width="400"
+              height="700"
+              style={{ border: "none", overflow: "hidden" }}
+              scrolling="no"
+              frameBorder="0"
+              allow="autoplay; encrypted-media; picture-in-picture; web-share"
+            />
+          </div>
+        </Card>
+      </div>
     </div>
   )
 }

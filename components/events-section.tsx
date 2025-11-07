@@ -34,7 +34,7 @@ const events = [
       "Free health screenings, wellness workshops, and health information sessions for the Nepali community.",
     attendees: "300+ expected",
     status: "Upcoming",
-    image: "/placeholder-9rua2.png",
+    image: "/placeholder-9rua2.jpg",
   },
 ]
 
