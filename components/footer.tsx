@@ -62,10 +62,10 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-muted-foreground">
-              <li>(416) 555-NEPAL</li>
-              <li>info@nepaliradiotoronto.com</li>
-              <li>123 Gerrard India Bazaar</li>
-              <li>Toronto, ON M4M 2X8</li>
+              <li>(647) 282 7635</li>
+              <li>namasteradio2005@gmail.com</li>
+              <li>5832 wachtsmatch crossing missisaga</li>
+              <li>Toronto, L5M-6N9</li>
             </ul>
           </div>
         </div>

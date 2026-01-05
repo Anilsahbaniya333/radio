@@ -8,7 +8,7 @@ import { Save, ExternalLink } from "lucide-react"
 
 export function FacebookVideos() {
   const [facebookPage, setFacebookPage] = useState("NamasteRadioToronto")
-  const [tiktokUser, setTiktokUser] = useState("anilt72")
+  const [tiktokUser, setTiktokUser] = useState("namasteradiotoronto")
   const [tiktokVideoId, setTiktokVideoId] = useState("7532371121463774469")
   const [isEditing, setIsEditing] = useState(false)
 

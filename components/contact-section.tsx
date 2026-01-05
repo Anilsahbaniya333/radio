@@ -41,7 +41,7 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg">radionamaste.ca</p>
+                <p className="text-lg">namasteradio2005@gmail.com</p>
                 <p className="text-muted-foreground">We'll respond within 24 hours</p>
               </CardContent>
             </Card>
@@ -54,8 +54,8 @@ export function ContactSection() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg">123 Gerrard India Bazaar</p>
-                <p className="text-lg">Toronto, ON M4M 2X8</p>
+                <p className="text-lg">2184 Kipling Ave Toronto</p>
+                <p className="text-lg">Toronto, ON M9W 4K9</p>
                 <p className="text-muted-foreground">Visit us by appointment</p>
               </CardContent>
             </Card>
@@ -69,9 +69,9 @@ export function ContactSection() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-1">
-                  <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p>Saturday: 10:00 AM - 4:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>Sunday - Friday Only by oppointment</p>
+                  <p>Saturday: 7 AM - 8:00 AM</p>
+                 
                 </div>
                 <p className="text-muted-foreground mt-2">Broadcasting 24/7</p>
               </CardContent>

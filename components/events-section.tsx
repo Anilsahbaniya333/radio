@@ -44,67 +44,14 @@ export function EventsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-text">Community Events</span>
+            <span className="gradient-text">News Sections</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Bringing the Nepali community together through cultural celebrations and meaningful gatherings
-          </p>
+          <h2 className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
+            Comming Soon
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {events.map((event, index) => (
-            <Card
-              key={index}
-              className="bg-background border-border hover:border-primary/50 transition-colors overflow-hidden"
-            >
-              <div className="relative">
-                <img src={event.image || "/placeholder.svg"} alt={event.title} className="w-full h-48 object-cover" />
-                <div className="absolute top-4 right-4">
-                  <Badge
-                    variant={event.status === "Upcoming" ? "default" : "secondary"}
-                    className={event.status === "Upcoming" ? "bg-primary text-primary-foreground" : ""}
-                  >
-                    {event.status}
-                  </Badge>
-                </div>
-              </div>
-
-              <CardHeader>
-                <CardTitle className="text-xl">{event.title}</CardTitle>
-                <CardDescription className="text-base">{event.description}</CardDescription>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2 text-sm">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <span>{event.date}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <span>{event.time}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm">
-                    <MapPin className="h-4 w-4 text-primary" />
-                    <span>{event.location}</span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm">
-                    <Users className="h-4 w-4 text-primary" />
-                    <span>{event.attendees}</span>
-                  </div>
-                </div>
-
-                <Button
-                  className="w-full"
-                  variant={event.status === "Upcoming" ? "default" : "outline"}
-                  disabled={event.status === "Past"}
-                >
-                  {event.status === "Upcoming" ? "Register Now" : "View Photos"}
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+   
       </div>
     </section>
   )
