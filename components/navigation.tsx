@@ -100,9 +100,15 @@ export function Navigation() {
             <a href="#home" className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#programs" className="text-foreground hover:text-primary transition-colors">
-              Programs
-            </a>
+            <a
+  href="/programs"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-foreground hover:text-primary transition-colors"
+>
+  programs
+</a>
+
             <a href="#community" className="text-foreground hover:text-primary transition-colors">
               Community
             </a>
@@ -150,9 +156,15 @@ export function Navigation() {
               <a href="#home" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Home
               </a>
-              <a href="#programs" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
-                Programs
-              </a>
+              <a
+  href="/programs"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-foreground hover:text-primary transition-colors"
+>
+  programs
+</a>
+
               <a href="#community" className="text-foreground hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
                 Community
               </a>
