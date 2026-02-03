@@ -99,7 +99,6 @@ export default function RecordingSection() {
               {/* ✅ DATE AS HEADING */}
               <p className="font-semibold mb-2">{formatHeading(r.created_at)}</p>
 
-              {/* ✅ AUDIO ONLY */}
               {r.audio_link ? getPlayer(r.audio_link) : <p>No audio link.</p>}
             </div>
           ))}
