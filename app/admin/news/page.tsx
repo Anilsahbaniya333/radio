@@ -39,7 +39,7 @@ export default function AdminNewsPage() {
         heading,
         news,
         audio_link,
-        publish: true, // ✅ only if your table has publish column
+        publish: true, 
       },
     ]);
 
